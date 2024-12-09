@@ -21,7 +21,10 @@ class Subscription {
 
     // Insert or update a subscription
     static async upsert(userId, plan_id, plan_name, expiresAt) {
-        console.log('Upserting Data:', { userId, plan_id, plan_name, expiresAt }); // Debug log
+        const formattedExpiresAt = new Date(expiresAt)
+            .toISOString()
+            .slice(0, 19)
+            .replace('T', ' ');
     
         const query = `
             INSERT INTO subscriptions (user_id, plan_id, plan_name, expires_at)
@@ -33,10 +36,10 @@ class Subscription {
         `;
     
         try {
-            console.log('Executing Query:', query, [userId, plan_id, plan_name, expiresAt]); // Log SQL query
-            await pool.query(query, [userId, plan_id, plan_name, expiresAt]);
+            console.log('Formatted expires_at for query:', formattedExpiresAt);
+            await pool.query(query, [userId, plan_id, plan_name, formattedExpiresAt]);
         } catch (err) {
-            console.error('Database Error in upsert:', err.message); // Log any database errors
+            console.error('Database Error in upsert:', err.message);
             throw err;
         }
     }
