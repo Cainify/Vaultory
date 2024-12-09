@@ -282,15 +282,17 @@ const Subscription = () => {
         try {
             const expiry = new Date();
             expiry.setMonth(expiry.getMonth() + 1);
-
+    
+            const formattedExpiry = expiry.toISOString().slice(0, 19).replace('T', ' ');
+    
             await updateSubscription({
                 plan_id: selectedPlan.plan_id,
                 plan_name: selectedPlan.name,
-                expires_at: expiry.toISOString(),
+                expires_at: formattedExpiry,
             });
-
+    
             setCurrentPlan(selectedPlan.name);
-            setExpiryDate(expiry.toISOString());
+            setExpiryDate(formattedExpiry);
             setSuccessMessage('Subscription updated successfully!');
             setShowPaymentForm(false);
         } catch (err) {
