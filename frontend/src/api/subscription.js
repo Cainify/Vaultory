@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/subscription';
+const API_URL = `${process.env.REACT_APP_API_URL}/subscription`;
 
 export const getSubscription = async () => {
     const token = localStorage.getItem('token');
