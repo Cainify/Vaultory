@@ -166,8 +166,17 @@ const Vault = () => {
     };
 
     return (
-        <div className="relative flex flex-col p-4 sm:p-8 lg:p-16 mx-4 lg:mx-24">
-            <h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-gray-100">Vault</h1>
+        <div className="flex-grow p-4 sm:p-8 lg:p-16 mx-4 lg:mx-24">
+            <div className="flex justify-between items-center mb-6">
+                <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Vault</h1>
+                <button
+                    onClick={() => setShowForm(true)}
+                    className="bg-blue-500 hover:bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
+                    title="Add Credential"
+                >
+                    <FiPlus size={24} />
+                </button>
+            </div>
             {error && <p className="text-red-500">{error}</p>}
 
             <div className="mb-6">
@@ -179,14 +188,6 @@ const Vault = () => {
                     className="w-full p-3 border rounded text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                 />
             </div>
-
-            <button
-                onClick={() => setShowForm(true)}
-                className="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
-                title="Add Credential"
-            >
-                <FiPlus size={24} />
-            </button>
 
             {showForm && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
