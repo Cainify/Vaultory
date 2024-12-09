@@ -166,8 +166,8 @@ const Vault = () => {
     };
 
     return (
-        <div className="relative flex flex-col p-8 mx-32">
-            <h1 className="text-3xl font-bold mb-6">Vault</h1>
+        <div className="relative flex flex-col p-4 sm:p-8 lg:p-16 mx-4 lg:mx-24">
+            <h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-gray-100">Vault</h1>
             {error && <p className="text-red-500">{error}</p>}
 
             <div className="mb-6">
@@ -176,13 +176,13 @@ const Vault = () => {
                     placeholder="Search credentials..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full p-3 border rounded text-black"
+                    className="w-full p-3 border rounded text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                 />
             </div>
 
             <button
                 onClick={() => setShowForm(true)}
-                className="absolute top-4 right-4 bg-blue-500 hover:bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
+                className="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
                 title="Add Credential"
             >
                 <FiPlus size={24} />
@@ -197,14 +197,14 @@ const Vault = () => {
                         >
                             ✖
                         </button>
-                        <h2 className="text-2xl font-bold mb-4">Add New Credential</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Add New Credential</h2>
                         <form onSubmit={handleAddCredential}>
                             <input
                                 type="text"
                                 placeholder="Name"
                                 value={newCredential.name}
                                 onChange={(e) => setNewCredential({ ...newCredential, name: e.target.value })}
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                                 required
                             />
                             <input
@@ -214,7 +214,7 @@ const Vault = () => {
                                 onChange={(e) =>
                                     setNewCredential({ ...newCredential, description: e.target.value })
                                 }
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                                 required
                             />
                             <input
@@ -224,7 +224,7 @@ const Vault = () => {
                                 onChange={(e) =>
                                     setNewCredential({ ...newCredential, category: e.target.value })
                                 }
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                             />
                             <input
                                 type="text"
@@ -233,7 +233,7 @@ const Vault = () => {
                                 onChange={(e) =>
                                     setNewCredential({ ...newCredential, username: e.target.value })
                                 }
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                             />
                             <input
                                 type="password"
@@ -242,7 +242,7 @@ const Vault = () => {
                                 onChange={(e) =>
                                     setNewCredential({ ...newCredential, password: e.target.value })
                                 }
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                                 required
                             />
                             <button
@@ -265,7 +265,7 @@ const Vault = () => {
                         >
                             ✖
                         </button>
-                        <h2 className="text-2xl font-bold mb-4">Edit Credential</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Edit Credential</h2>
                         <form onSubmit={handleEditCredential}>
                             <input
                                 type="text"
@@ -274,7 +274,7 @@ const Vault = () => {
                                 onChange={(e) =>
                                     setEditingCredential({ ...editingCredential, name: e.target.value })
                                 }
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                                 required
                             />
                             <input
@@ -284,7 +284,7 @@ const Vault = () => {
                                 onChange={(e) =>
                                     setEditingCredential({ ...editingCredential, description: e.target.value })
                                 }
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                                 required
                             />
                             <input
@@ -294,7 +294,7 @@ const Vault = () => {
                                 onChange={(e) =>
                                     setEditingCredential({ ...editingCredential, category: e.target.value })
                                 }
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                             />
                             <input
                                 type="text"
@@ -303,7 +303,7 @@ const Vault = () => {
                                 onChange={(e) =>
                                     setEditingCredential({ ...editingCredential, username: e.target.value })
                                 }
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                             />
                             <input
                                 type="password"
@@ -312,7 +312,7 @@ const Vault = () => {
                                 onChange={(e) =>
                                     setEditingCredential({ ...editingCredential, password: e.target.value })
                                 }
-                                className="w-full p-3 border rounded mb-4 text-black"
+                                className="w-full p-3 border rounded mb-4 text-black dark:text-white bg-gray-200 dark:bg-gray-700"
                                 required
                             />
                             <button

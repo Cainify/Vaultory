@@ -2,8 +2,6 @@ import React from 'react';
 import { FiKey, FiCreditCard, FiSettings, FiInfo } from 'react-icons/fi';
 
 const Dashboard = () => {
-
-
     const navCards = [
         {
             title: 'Vault',
@@ -36,14 +34,12 @@ const Dashboard = () => {
     ];
 
     return (
-        <div className="flex-grow p-8 mx-8">
-            {/* Title */}
-            <h1 className="text-4xl font-bold mb-8 text-gray-800 dark:text-gray-100">
+        <div className="flex-grow px-4 py-8 sm:px-8 sm:py-12 mx-auto max-w-screen-lg">
+            <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-gray-800 dark:text-gray-100 text-center">
                 Welcome to Vaultory
             </h1>
 
-            {/* Navigation Sections */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {navCards.map((card, index) => (
                     <div
                         key={index}
@@ -51,11 +47,11 @@ const Dashboard = () => {
                     >
                         <div className="flex items-center mb-4">
                             {card.icon}
-                            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                            <h2 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100">
                                 {card.title}
                             </h2>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-300 mb-4">{card.description}</p>
+                        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">{card.description}</p>
                         <a
                             href={card.link}
                             className="text-blue-500 dark:text-blue-400 mt-auto self-start hover:underline"

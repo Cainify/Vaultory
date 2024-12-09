@@ -155,8 +155,8 @@ const PaymentForm = ({ plan, onSuccess, onError, onClose }) => {
                 </div>
 
                 {/* State and Postal Code Fields */}
-                <div className="flex gap-4 mb-4">
-                    <div className="w-1/2">
+                <div className="flex flex-col sm:flex-row gap-4 mb-4">
+                    <div className="w-full sm:w-1/2">
                         <label htmlFor="state" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                             State
                         </label>
@@ -170,7 +170,7 @@ const PaymentForm = ({ plan, onSuccess, onError, onClose }) => {
                             className="p-3 mt-1 w-full border rounded bg-gray-50 dark:bg-gray-700 text-gray-800 dark:text-white"
                         />
                     </div>
-                    <div className="w-1/2">
+                    <div className="w-full sm:w-1/2">
                         <label htmlFor="postalCode" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                             Postal Code
                         </label>
@@ -338,7 +338,7 @@ const Subscription = () => {
     }, []);
 
     return (
-        <div className="flex-grow p-8 lg:p-16 mx-4 lg:mx-24">
+        <div className="flex-grow p-4 sm:p-8 lg:p-16 mx-4 lg:mx-24">
             <h1 className="text-4xl font-bold mb-8 text-gray-800 dark:text-gray-100">Subscription Plans</h1>
 
             {error && (
@@ -419,7 +419,7 @@ const Subscription = () => {
 
             {showPaymentForm && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="w-full max-w-md relative">
+                    <div className="w-full max-w-md relative p-4">
                         <Elements stripe={stripePromise}>
                             <PaymentForm
                                 plan={selectedPlan}
